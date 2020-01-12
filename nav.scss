@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #353535;
+}
+.nav-bar {
+  height: 80px;
+  width: 90%;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+
+  nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-li {
+      height: 30px;
+      height: 30px;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex: 1;
+
+      li img {
+        display: none;
+      }
+    }
+
+    li {
+      list-style-type: none;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 400ms;
+
+        .logo {
+          width: 60px;
+          height: 60px;
+
+          path {
+            fill: #fff;
+            transition: all 400ms;
+          }
+        }
+        .logo:hover {
+          path {
+            fill: rgba(144, 156, 255, 0.7);
+          }
+        }
+      }
+
+      &:hover a {
+        color: #909cff;
+      }
+    }
+
+    .wrapper-for-icon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: auto;
+
+      li:first-child {
+        img {
+          display: none;
+        }
+      }
+
+      li:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      li:nth-child(2n) {
+        width: 30px;
+        height: 30px;
+        a {
+          display: block;
+          height: 30px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      li:last-child {
+        a {
+          border-radius: 10px;
+          background: rgba(203, 50, 50, 0.7);
+          padding: 5px 15px;
+          text-decoration: none;
+          color: #fff;
+          font-size: 14px;
+          transition: opacity 400ms;
+        }
+        &:hover a {
+          opacity: 1;
+          background: rgba(203, 50, 50, 1);
+        }
+      }
+    }
+    .active {
+      color: #909cff;
+      a {
+        color: #909cff;
+      }
+    }
+  }
+  .for-mobile {
+    display: flex;
+    width: 90%;
+    margin: 0 auto 30px auto;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0 40px 0;
+    display: none;
+
+    .logo-for-mobile {
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+// media queries
+
+// -------------------------- normal tablet --------------------------
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-bar nav {
+    li a {
+      font-size: 14px;
+    }
+    .wrapper-for-icon {
+      li:nth-child(2n) {
+        width: 26px;
+        height: 26px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      li:last-child {
+        a {
+          padding: 5px 12px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------ Small sizes (start from ipad to phone) Size -----------------------------
+@media (max-width: 768px) {
+  .nav-bar {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background: #5a5a5a;
+
+    .for-mobile {
+      visibility: visible;
+      display: flex;
+      .toggle {
+        overflow: hidden;
+        margin: 1em 0;
+        width: 40px;
+
+        &::before {
+          margin: 7px 0;
+          width: 100%;
+        }
+        div {
+          margin: 7px 0 7px auto;
+          width: 70%;
+        }
+        &::after {
+          margin: 7px 0 7px auto;
+          width: 40%;
+        }
+
+        &::after,
+        &::before,
+        div {
+          background-color: #fff;
+          border-radius: 10px;
+          content: "";
+          display: block;
+          height: 3px;
+          transition: all 300ms ease-in-out;
+        }
+      }
+
+      .active::before {
+        width: 100%;
+        margin: 7px 0;
+        transform: translateY(10px) rotate(135deg);
+      }
+      .active::after {
+        width: 100%;
+        transform: translateY(-10px) rotate(-135deg);
+      }
+      .active div {
+        transform: translateX(200%);
+      }
+    }
+    nav {
+      margin: auto;
+      height: 50vh;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      .logo-li {
+        display: none;
+      }
+      .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+
+        li img {
+          display: block;
+        }
+        li:not(:last-child) {
+          border-bottom: 1px solid #f4f4f4;
+        }
+      }
+
+      li {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-left: 10%;
+          width: 25px;
+          height: 25px;
+        }
+        a {
+          font-size: 1rem;
+          width: 65%;
+          margin: auto;
+        }
+        &:hover {
+          a {
+            color: #fff;
+          }
+        }
+      }
+      .wrapper-for-icon {
+        width: 80%;
+        margin: 0 auto 30px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li:first-child {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          img {
+            display: block;
+            margin-left: 0;
+            width: 25px;
+            height: 25px;
+          }
+
+          a {
+            margin-left: 10px;
+          }
+        }
+        li:not(:last-child) {
+          margin-right: 0;
+        }
+        li:nth-child(2n) {
+          display: none;
+        }
+        li:last-child {
+          width: auto;
+          a {
+            border-radius: 0;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            background: none;
+            color: #ff3e3e;
+            opacity: 0.7;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0ms;
+          }
+          &:hover a {
+            color: #ff3e3e;
+            background: none;
+            opacity: 1;
+          }
+        }
+      }
+      .active {
+        background: #909cff;
+        a {
+          color: #fff;
+          background: #909cff;
+        }
+      }
+    }
+  }
+  .active-toggle {
+    visibility: visible;
+
+    .for-mobile {
+      border-bottom: 1px solid #c8c8c8;
+    }
+  }
+}
+
+// ---------------- phone size --------------------------
+@media (max-width: 480px) {
+  .nav-bar {
+    .for-mobile .toggle {
+      width: 30px;
+    }
+    nav {
+      .wrapper-for-icon {
+        li:first-child a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
